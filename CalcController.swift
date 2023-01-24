@@ -68,9 +68,11 @@ extension CalcController: UICollectionViewDelegate,
         cell.backgroundColor = .systemRed
         return cell
     }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: view.frame.size.width/5, height: view.frame.size.width/5)
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        return CGSize(width: view.frame.size.width/5,
+                      height: view.frame.size.width/5)
     }
-    
 }
