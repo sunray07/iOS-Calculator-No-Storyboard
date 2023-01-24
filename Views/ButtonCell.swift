@@ -37,7 +37,6 @@ class ButtonCell: UICollectionViewCell {
             self.titleLabel.textColor = .white
         }
         self.setupUI()
-            
     }
     //MARK: -UI Setup
     private func setupUI() {
@@ -60,7 +59,6 @@ class ButtonCell: UICollectionViewCell {
                 self.titleLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor,
                                                           constant: -extraSpace),
                                         ])
-            
         default:
             self.layer.cornerRadius = self.frame.size.width/2
             
@@ -70,10 +68,8 @@ class ButtonCell: UICollectionViewCell {
                 self.titleLabel.heightAnchor.constraint(equalTo: self.heightAnchor),
                 self.titleLabel.widthAnchor.constraint(equalTo: self.widthAnchor)
             ])
-          
         }
     }
-    
     override func prepareForReuse() {
         super.prepareForReuse()
         self.titleLabel.removeFromSuperview()

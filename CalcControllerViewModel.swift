@@ -17,7 +17,5 @@ class CalcControllerViewModel {
         .number(1), .number(2), .number(3), .add,
         .number(0), .decimal,  .equals
     ]
-    
     private(set) lazy var calcHeaderLabel: String = "42"
-    
 }
