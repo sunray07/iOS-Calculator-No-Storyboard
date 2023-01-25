@@ -53,7 +53,7 @@ extension CalculatorButton {
         case .percentage:
             return "%"
         case .divide:
-            return "+"
+            return "÷"
         case .multiply:
             return "x"
         case .subtrackt:

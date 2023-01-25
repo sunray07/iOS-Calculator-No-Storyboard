@@ -43,8 +43,13 @@ class CalcController: UIViewController {
         
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
+        
+        self.viewModel.updateViews = { [weak self] in
+            DispatchQueue.main.async { [weak self] in
+                self?.collectionView.reloadData()
+            }
+        }
     }
-    
     //MARK: -UI Setup
     private func setupUI() {
         self.view.addSubview(self.collectionView)
@@ -58,7 +63,6 @@ class CalcController: UIViewController {
         ])
     }
 }
-    
     //MARK: -CollectionView Methods
 extension CalcController: UICollectionViewDelegate,
                           UICollectionViewDataSource,
@@ -109,6 +113,12 @@ extension CalcController: UICollectionViewDelegate,
         let calcButton = self.viewModel.calcButtonCells[indexPath.row]
         cell.configure(width: calcButton)
         
+        if let operation = self.viewModel.operation, self.viewModel.secondNumber == nil {
+            if operation.title == calcButton.title {
+                cell.setOperationSelected()
+            }
+        }
+        
         return cell
     }
     func collectionView(_ collectionView: UICollectionView,
@@ -140,6 +150,6 @@ extension CalcController: UICollectionViewDelegate,
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let buttonCell = self.viewModel.calcButtonCells[indexPath.row]
-        print(buttonCell.title)
+        self.viewModel.didSelectButton(with: buttonCell)
     }
 }

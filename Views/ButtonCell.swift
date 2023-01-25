@@ -38,6 +38,11 @@ class ButtonCell: UICollectionViewCell {
         }
         self.setupUI()
     }
+    
+    public func setOperationSelected() {
+        self.titleLabel.textColor = .orange
+        self.backgroundColor = .white
+    }
     //MARK: -UI Setup
     private func setupUI() {
         
